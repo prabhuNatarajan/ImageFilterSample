@@ -23,6 +23,7 @@
 		181D20171887A8CA00010EEB /* ImageFilterSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D20161887A8CA00010EEB /* ImageFilterSampleTests.m */; };
 		181D20221887AA7B00010EEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181D20211887AA7B00010EEB /* ImageIO.framework */; };
 		181D20251887AADE00010EEB /* UIimage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D20241887AADE00010EEB /* UIimage+Filter.m */; };
+		181D202818881A0800010EEB /* UIimage+FilterCompositions.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D202718881A0800010EEB /* UIimage+FilterCompositions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		181D20211887AA7B00010EEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		181D20231887AADE00010EEB /* UIimage+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIimage+Filter.h"; sourceTree = "<group>"; };
 		181D20241887AADE00010EEB /* UIimage+Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIimage+Filter.m"; sourceTree = "<group>"; };
+		181D202618881A0800010EEB /* UIimage+FilterCompositions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIimage+FilterCompositions.h"; sourceTree = "<group>"; };
+		181D202718881A0800010EEB /* UIimage+FilterCompositions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIimage+FilterCompositions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 			children = (
 				181D20231887AADE00010EEB /* UIimage+Filter.h */,
 				181D20241887AADE00010EEB /* UIimage+Filter.m */,
+				181D202618881A0800010EEB /* UIimage+FilterCompositions.h */,
+				181D202718881A0800010EEB /* UIimage+FilterCompositions.m */,
 			);
 			name = "Filter's";
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				181D20021887A8C900010EEB /* IFSViewController.m in Sources */,
 				181D20251887AADE00010EEB /* UIimage+Filter.m in Sources */,
 				181D1FF81887A8C700010EEB /* main.m in Sources */,
+				181D202818881A0800010EEB /* UIimage+FilterCompositions.m in Sources */,
 				181D1FFC1887A8C800010EEB /* IFSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +487,7 @@
 				181D201C1887A8CA00010EEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		181D201D1887A8CA00010EEB /* Build configuration list for PBXNativeTarget "ImageFilterSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +496,7 @@
 				181D201F1887A8CA00010EEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
