@@ -9,12 +9,12 @@
 #import "UIimage+Filter.h"
 
 @interface UIImage ()
-
+/*
 - (CGContextRef) createARGBBitmapContextFromImage:(CGImageRef)imageRef;
 - (UIImage *) createImageFromContext:(CGContextRef) cgctx WithSize:(CGSize)size;
 - (UIImage *) createImageFromPixels:(unsigned char*)outData Length:(NSUInteger)length;
 - (unsigned char *)convolveRaw:(NSArray *)kernal InData:(unsigned char *)inData OuData:(unsigned char *)outData Height:(uint)_height Width:(uint)_width;
-
+*/
 @end
 
 @implementation UIImage (Filter)

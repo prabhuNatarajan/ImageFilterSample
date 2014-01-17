@@ -20,4 +20,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableEffects;
 
+- (IBAction)showCamera:(id)sender;
+
 @end

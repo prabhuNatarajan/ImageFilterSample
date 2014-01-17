@@ -62,5 +62,13 @@
         NSLog(@"Unable to save image to photo album %@",error);
     }
     [self.navigationController popViewControllerAnimated:YES];
+    UIAlertView *alert;
+    // Unable to save the image
+        if (error)
+            alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to save image to Photo Album." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        else // All is well
+            alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image saved to Photo Album."                                          delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
 }
+
 @end
