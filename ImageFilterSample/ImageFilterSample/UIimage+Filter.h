@@ -60,43 +60,45 @@ static inline RGBA RGBAMake(int r, int g, int b, int a)
 @interface UIImage (Filter)
 
 - (float) safe:(int) i;
-- (UIImage *)duplicate;
-- (id)applyFilter:(RGBA (^)(int r, int g, int b, int a))fn;
-- (id)applyFilterByStep:(int) step ShiftIn:(DataField)shiftIn ShiftOut:(DataField)shiftOut Callback:(RGBA (^)(int r, int g, int b, int a))fn;
-- (id)convolve:(NSArray *)kernal;
-- (id)edgeDetection:(EdgeType)edgetype;
-- (id)adjustRedChannel:(float)rS GreenChannel:(float)gS BlueChannel:(float) bS;
-- (id)brightnessByFactor:(float) t;
-- (id)fillRedChannel:(float)rF GreenChannel:(float) gF BlueChannel:(float) bF;
-- (id)opacityByFactor:(float) o;
-- (id)saturatioByFactor:(float) t;
-- (id)thresholdByFactor:(float) t;
-- (id)posterizeByLevel:(float) level;
-- (id)gammaByValue:(float)value;
-- (id)negative;
-- (id)greyScale;
-- (id)bump;
-- (id)tintWithMinRGB:(RGBA)minRGB MaxRGB:(RGBA)maxRGB;
-- (id)maskRedChannel:(int)mR GreenChannel:(int)mG BlueChannel:(int)mB;
-- (id)sepia;
-- (id)biasByFactor:(float)val;
-- (id)contrastByFactor:(float)val;
-- (id)blur;
-- (id)sharpen;
-- (id)guassianBlur;
+- (UIImage *) duplicate;
 
-- (id)applyBlend:(UIImage *)topImage CallBack:(RGBA (^)(RGBA top, RGBA bottom))fn;
-- (id)multiply:(UIImage *)topImage;
-- (id)screeen:(UIImage *)topFltr;
-- (id)overlay:(UIImage *)topFltr;
-- (id)difference:(UIImage *)topFltr;
-- (id)addition:(UIImage *)topFltr;
-- (id)exclusion:(UIImage *)topFltr;
-- (id)softLight:(UIImage *)topFltr;
+- (id) applyFilter:(RGBA (^)(int r, int g, int b, int a))fn;
+- (id) applyFilterByStep:(int) step ShiftIn:(DataField)shiftIn ShiftOut:(DataField)shiftOut Callback:(RGBA (^)(int r, int g, int b, int a))fn;
 
-- (float) calc_bias:(float)f Bias:(float)bi;
-- (float) calc_contrast:(float)f contrast:(float)c;
-- (float) calc_overlay:(float)b other:(float)t;
-- (float) calc_softlight:(float)b other:(float)t;
+- (id) convolve:(NSArray *) kernel;
+- (id) edgeDetection:(EdgeType)edgetype;
+- (id) adjustRedChannel:(float) rS GreenChannel:(float) gS BlueChannel:(float) bS;
+- (id) brightnessByFactor:(float) t;
+- (id) fillRedChannel:(float)rF GreenChannel:(float) gF BlueChannel:(float) bF;
+- (id) opacityByFactor:(float) o;
+- (id) saturationByFactor:(float) t;
+- (id) thresholdByFactor:(float) t;
+- (id) posterizeByLevel:(float) level;
+- (id) gammaByValue:(float) value;
+- (id) negative;
+- (id) grayScale;
+- (id) bump;
+- (id) tintWithMinRGB:(RGBA)minRGB MaxRGB:(RGBA)maxRGB;
+- (id) maskRedChannel:(int)mR GreenChannel:(int) mG BlueChannel:(int) mB;
+- (id) sepia;
+- (id) biasByFactor:(float) val;
+- (id) contrastByFactor:(float) val;
+- (id) blur;
+- (id) sharpen;
+- (id) gaussianBlur;
+
+- (id) applyBlend:(UIImage *)topImage CallBack: (RGBA (^)(RGBA top, RGBA bottom))fn;
+- (id) multiply:(UIImage *)topImage;
+- (id) screen:(UIImage *)topFltr;
+- (id) overlay:(UIImage *)topFltr;
+- (id) difference:(UIImage *)topFltr;
+- (id) addition:(UIImage *)topFltr;
+- (id) exclusion:(UIImage *)topFltr;
+- (id) softLight:(UIImage *)topFltr;
+
+- (float) calc_bias:(float) f Bias:(float) bi;
+- (float) calc_contrast:(float) f contrast:(float) c;
+- (float) calc_overlay:(float)b other:(float) t;
+- (float) calc_softlight:(float)b other:(float) t;
 
 @end

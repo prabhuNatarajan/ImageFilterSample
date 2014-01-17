@@ -28,7 +28,7 @@
 - (id)e1
 {
     UIImage *topImage = [self duplicate];
-    topImage = [[topImage saturatioByFactor:0]blur];
+    topImage = [[topImage saturationByFactor:0]blur];
     UIImage *newImage = [self multiply:topImage];
     RGBA minrgb;
     RGBA maxrgb;
@@ -52,7 +52,7 @@
     maxrgb.red = 190;
     maxrgb.green = 190;
     maxrgb.blue = 230;
-    return [[[self saturatioByFactor:0.3]posterizeByLevel:70]tintWithMinRGB:minrgb MaxRGB:maxrgb];
+    return [[[self saturationByFactor:0.3]posterizeByLevel:70]tintWithMinRGB:minrgb MaxRGB:maxrgb];
 }
 
 - (id)e3
@@ -78,7 +78,7 @@
     maxrgb.red = 210;
     maxrgb.green = 210;
     maxrgb.blue = 210;
-    return [[self greyScale]tintWithMinRGB:minrgb MaxRGB:maxrgb];
+    return [[self grayScale]tintWithMinRGB:minrgb MaxRGB:maxrgb];
 }
 
 - (id)e5
@@ -91,7 +91,7 @@
     maxrgb.red = 120;
     maxrgb.green = 170;
     maxrgb.blue = 210;
-    return [[[[[self tintWithMinRGB:minrgb MaxRGB:maxrgb]contrastByFactor:0.75]biasByFactor:1]saturatioByFactor:0.6]brightnessByFactor:20];
+    return [[[[[self tintWithMinRGB:minrgb MaxRGB:maxrgb]contrastByFactor:0.75]biasByFactor:1]saturationByFactor:0.6]brightnessByFactor:20];
 }
 
 - (id)e6
@@ -104,7 +104,7 @@
     maxrgb.red = 120;
     maxrgb.green = 170;
     maxrgb.blue = 210;
-    return [[[self saturatioByFactor:0.4]contrastByFactor:0.75]tintWithMinRGB:minrgb MaxRGB:maxrgb];
+    return [[[self saturationByFactor:0.4]contrastByFactor:0.75]tintWithMinRGB:minrgb MaxRGB:maxrgb];
 }
 
 - (id)e7
@@ -118,8 +118,8 @@
     maxrgb.red = 150;
     maxrgb.green = 160;
     maxrgb.blue = 230;
-    topImage = [[topImage tintWithMinRGB:minrgb MaxRGB:maxrgb]saturatioByFactor:0.6];
-    UIImage *newImage = [[[self adjustRedChannel:0.1 GreenChannel:0.7 BlueChannel:0.4]saturatioByFactor:0.6]contrastByFactor:0.8];
+    topImage = [[topImage tintWithMinRGB:minrgb MaxRGB:maxrgb]saturationByFactor:0.6];
+    UIImage *newImage = [[[self adjustRedChannel:0.1 GreenChannel:0.7 BlueChannel:0.4]saturationByFactor:0.6]contrastByFactor:0.8];
     newImage = [newImage multiply:topImage];
     return newImage;
 }
@@ -129,10 +129,10 @@
     UIImage *topImage1 = [self duplicate];
     UIImage *topImage2 = [self duplicate];
     UIImage *topImage3 = [self duplicate];
-    topImage1 = [topImage1 saturatioByFactor:0];
-    topImage2 = [topImage2 guassianBlur];
+    topImage1 = [topImage1 saturationByFactor:0];
+    topImage2 = [topImage2 gaussianBlur];
     topImage3 = [topImage3 fillRedChannel:167 GreenChannel:118 BlueChannel:12];
-    return [[[[[self overlay:topImage1]softLight:topImage2]softLight:topImage3]saturatioByFactor:0.5]contrastByFactor:0.86];
+    return [[[[[self overlay:topImage1]softLight:topImage2]softLight:topImage3]saturationByFactor:0.5]contrastByFactor:0.86];
 }
 - (id)e9
 {
