@@ -66,7 +66,7 @@ static inline RGBA RGBAMake(int r, int g, int b, int a)
 - (id)convolve:(NSArray *)kernal;
 - (id)edgeDetection:(EdgeType)edgetype;
 - (id)adjustRedChannel:(float)rS GreenChannel:(float)gS BlueChannel:(float) bS;
-- (id)brightneddByFactor:(float) t;
+- (id)brightnessByFactor:(float) t;
 - (id)fillRedChannel:(float)rF GreenChannel:(float) gF BlueChannel:(float) bF;
 - (id)opacityByFactor:(float) o;
 - (id)saturatioByFactor:(float) t;

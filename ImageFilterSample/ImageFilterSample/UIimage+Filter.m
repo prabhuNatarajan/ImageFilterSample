@@ -296,7 +296,7 @@
     }];
 }
 
-- (id)brightneddByFactor:(float)t
+- (id)brightnessByFactor:(float)t
 {
     return [self applyFilter:^RGBA (int r, int g, int b, int a){
         RGBA retVal;
@@ -591,12 +591,12 @@
     }];
 }
 
-- (float) calc_overlay:(float)b other:(float) t
+- (float)calc_overlay:(float)b other:(float) t
 {
     return (b > 128.0) ? 255.0 - 2.0 * (255.0 - t) * (255.0 - b) / 255.0: (b * t * 2.0) / 255.0;
 }
 
-- (id) overlay:(UIImage *)topFltr
+- (id)overlay:(UIImage *)topFltr
 {
     return [self applyBlend:topFltr CallBack:^RGBA(RGBA param1, RGBA param2) {
         RGBA retVal;
@@ -608,7 +608,7 @@
     }];
 }
 
-- (id) difference:(UIImage *)topFltr
+- (id)difference:(UIImage *)topFltr
 {
     return [self applyBlend:topFltr CallBack:^RGBA(RGBA param1, RGBA param2) {
         RGBA retVal;
@@ -620,7 +620,7 @@
     }];
 }
 
-- (id) addition:(UIImage *)topFltr
+- (id)addition:(UIImage *)topFltr
 {
     return [self applyBlend:topFltr CallBack:^RGBA(RGBA param1, RGBA param2) {
         RGBA retVal;
