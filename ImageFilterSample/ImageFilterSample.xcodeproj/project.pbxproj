@@ -26,6 +26,7 @@
 		181D202818881A0800010EEB /* UIimage+FilterCompositions.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D202718881A0800010EEB /* UIimage+FilterCompositions.m */; };
 		18B4389D188911F2004016F8 /* UIimage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4389C188911F2004016F8 /* UIimage+Scale.m */; };
 		18B438A0188916E0004016F8 /* IFSimageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4389F188916E0004016F8 /* IFSimageViewController.m */; };
+		18B438A218894A3A004016F8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B438A118894A39004016F8 /* image.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		18B4389C188911F2004016F8 /* UIimage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIimage+Scale.m"; sourceTree = "<group>"; };
 		18B4389E188916E0004016F8 /* IFSimageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSimageViewController.h; sourceTree = "<group>"; };
 		18B4389F188916E0004016F8 /* IFSimageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFSimageViewController.m; sourceTree = "<group>"; };
+		18B438A118894A39004016F8 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				181D1FFD1887A8C900010EEB /* Main.storyboard */,
 				181D20001887A8C900010EEB /* IFSViewController.h */,
 				181D20011887A8C900010EEB /* IFSViewController.m */,
+				18B438A118894A39004016F8 /* image.png */,
 				18B4389E188916E0004016F8 /* IFSimageViewController.h */,
 				18B4389F188916E0004016F8 /* IFSimageViewController.m */,
 				181D20031887A8C900010EEB /* Images.xcassets */,
@@ -232,6 +235,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
+					181D1FE71887A8C600010EEB = {
+						DevelopmentTeam = DQ9SSMD2L4;
+					};
 					181D20081887A8C900010EEB = {
 						TestTargetID = 181D1FE71887A8C600010EEB;
 					};
@@ -261,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B438A218894A3A004016F8 /* image.png in Resources */,
 				181D20041887A8C900010EEB /* Images.xcassets in Resources */,
 				181D1FF61887A8C700010EEB /* InfoPlist.strings in Resources */,
 				181D1FFF1887A8C900010EEB /* Main.storyboard in Resources */,
@@ -371,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -404,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -415,11 +422,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageFilterSample/ImageFilterSample-Prefix.pch";
 				INFOPLIST_FILE = "ImageFilterSample/ImageFilterSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0718BB6C-F84C-4F58-8CDF-5268BE66A47D";
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -429,11 +439,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageFilterSample/ImageFilterSample-Prefix.pch";
 				INFOPLIST_FILE = "ImageFilterSample/ImageFilterSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0718BB6C-F84C-4F58-8CDF-5268BE66A47D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

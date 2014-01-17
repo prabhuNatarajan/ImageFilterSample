@@ -35,15 +35,12 @@
     void *bitmapData;
     int bitmapByteCount;
     int bitmapBytesPerRow;
-    
     //Get image width, height, We'll use the entire image.
     size_t pixelsWide = CGImageGetWidth(imageRef);
     size_t pixelHigh = CGImageGetHeight(imageRef);
-    
     //Declare the number of bytes per row. Each pixel in the bitmap in this example is represented by 4 bytes; 8 bits each of red, green, blue and alpha.
     bitmapBytesPerRow = (pixelsWide *4);
     bitmapByteCount = (bitmapBytesPerRow * pixelHigh);
-    
     //Use the generic RGB color space.
     colorSpace = CGColorSpaceCreateDeviceRGB();
     if (colorSpace == NULL)
@@ -60,7 +57,7 @@
         CGColorSpaceRelease(colorSpace);
         return NULL;
     }
-        //Create the bitmap context, we want pre-multiplied ARGB, 8-bits per component. regardless of what the source image format is (CMYK, GrayScale and so on) it will be converted over to the format specified here by CGBitmapContextCreate.
+    //Create the bitmap context, we want pre-multiplied ARGB, 8-bits per component. regardless of what the source image format is (CMYK, GrayScale and so on) it will be converted over to the format specified here by CGBitmapContextCreate.
     context = CGBitmapContextCreate(bitmapData, pixelsWide, pixelHigh, 8, bitmapBytesPerRow, colorSpace, kCGImageAlphaPremultipliedFirst);
     if (context == NULL)
     {
@@ -82,7 +79,6 @@
         return nil;
     CGContextScaleCTM(cgctx, 1, -1);
     CGContextTranslateCTM(cgctx, 0, -size.height);
-    
     CGImageRef img = CGBitmapContextCreateImage(cgctx);
     UIImage *ui_img = [UIImage imageWithCGImage:img];
     CGImageRelease(img);
@@ -98,11 +94,9 @@
     size_t bitsPerComponent = CGImageGetBitsPerComponent(self.CGImage);
     size_t bitsPerPixel = CGImageGetBitsPerPixel(self.CGImage);
     size_t bytesPerRow = CGImageGetBytesPerRow(self.CGImage);
-    
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(self.CGImage);
     CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, outData, length, NULL);
-    
     CGImageRef newImageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorspace, bitmapInfo, provider, NULL, false, kCGRenderingIntentDefault);
     //modified image
     UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
@@ -204,7 +198,6 @@
     CGContextRef cgctx = [self createARGBBitmapContextFromImage:self.CGImage];
     size_t _width = CGImageGetWidth(self.CGImage);
     size_t _height = CGImageGetHeight(self.CGImage);
-    
     unsigned char *inData = CGBitmapContextGetData(cgctx);
     NSData *pixelData = (__bridge NSData *)CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage));
     NSMutableData *mutablePixelData = [pixelData mutableCopy];
@@ -212,7 +205,6 @@
     outData = [self convolveRaw:kernal InData:inData OuData:outData Height:_height Width:_width];
     UIImage *newImage = [self createImageFromPixels:outData Length:pixelData.length];
     if (outData) free(inData);
-    
     return newImage;
 }
 
@@ -221,7 +213,6 @@
     CGContextRef cgctx = [self createARGBBitmapContextFromImage:self.CGImage];
     size_t _width = CGImageGetWidth(self.CGImage);
     size_t _height = CGImageGetHeight(self.CGImage);
-    
     unsigned char *inData = CGBitmapContextGetData(cgctx);
     NSData *pixelData = (__bridge NSData *) CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage));
     unsigned char *outData = (unsigned char *)[pixelData bytes];
@@ -280,7 +271,6 @@
     UIImage *newImage = [self createImageFromPixels:outData Length:pixelData.length];
     if(outData) free(outData);
     if (inData) free(inData);
-    
     return newImage;
 }
 
@@ -339,7 +329,6 @@
     return [self applyFilter:^RGBA(int r, int g, int b, int a){
         RGBA retVal;
         float avg = (r + g + b) / 3.0;
-        
         retVal.red = [self safe:avg + t * (r - avg)];
         retVal.green = [self safe:avg + t * (g - avg)];
         retVal.blue = [self safe:avg + t * (b - avg)];
@@ -353,7 +342,6 @@
 {
     return [self applyFilter:^RGBA (int r, int g, int b, int a){
         RGBA retVal;
-        
         int c = 255;
         if (r < t || g < t || b < t)
         {
@@ -413,7 +401,6 @@
     return [self applyFilter:^RGBA (int r, int g, int b, int a){
         RGBA retVal;
         float avg = (r + g + b) / 3.0;
-        
         retVal.red = [self safe:avg];
         retVal.green = [self safe:avg];
         retVal.blue = [self safe:avg];
@@ -446,7 +433,6 @@
 {
     return [self applyFilter:^RGBA (int r, int g, int b, int a){
         RGBA retVal;
-        
         retVal.red = [self safe:(r & mR)];
         retVal.green = [self safe:(g & mG)];
         retVal.blue = [self safe:(b & mB)];
@@ -532,7 +518,6 @@
     unsigned char *blendData = CGBitmapContextGetData(topCGctx);
     CGContextRef bottomCGctx = [self createARGBBitmapContextFromImage:self.CGImage];
     unsigned char *imageData = CGBitmapContextGetData(bottomCGctx);
-    
     size_t _width = CGImageGetWidth(self.CGImage);
     size_t _height = CGImageGetHeight(self.CGImage);
     int i = 0;
@@ -642,7 +627,6 @@
         retVal.alpha = param2.alpha;
         return retVal;
     }];
-    
 }
 
 - (float) calc_softlight:(float)b other:(float) t
@@ -660,7 +644,6 @@
         retVal.alpha = param2.alpha;
         return retVal;
     }];
-    
 }
 
 @end

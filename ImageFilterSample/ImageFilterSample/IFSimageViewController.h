@@ -12,7 +12,9 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageViewPicture;
 
+- (IBAction)back:(id)sender;
+- (IBAction)save:(id)sender;
+
 - (void)setImage:(UIImage *)img;
-- (void)save;
 
 @end
