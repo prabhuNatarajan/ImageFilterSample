@@ -63,7 +63,7 @@
 	// per component. Regardless of what the source image format is
 	// (CMYK, Grayscale, and so on) it will be converted over to the format
 	// specified here by CGBitmapContextCreate.
-	context = CGBitmapContextCreate (bitmapData, pixelsWide, pixelsHigh, 8, bitmapBytesPerRow, colorSpace, kCGImageAlphaPremultipliedFirst);
+	context = CGBitmapContextCreate (bitmapData, pixelsWide, pixelsHigh, 8, bitmapBytesPerRow, colorSpace, (CGBitmapInfo)kCGImageAlphaPremultipliedFirst);
 	if (context == NULL)
 	{
 		free (bitmapData);

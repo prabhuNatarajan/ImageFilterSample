@@ -49,6 +49,8 @@
     {
         SEL _selector = NSSelectorFromString([[arrEffects objectAtIndex:indexPath.row]valueForKey:@"method"]);
         cell.imageView.image = [miniThumbImage performSelector:_selector];
+        void (*func)(id, SEL) = (__bridge void *)cell.imageView.image;
+        func(miniThumbImage, _selector);
     }
     else
         cell.imageView.image = miniThumbImage;
